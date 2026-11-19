@@ -1,0 +1,110 @@
+:root {
+  --ink: #17202a;
+  --muted: #5d6d7e;
+  --line: #d5dbdb;
+  --paper: #fdfefe;
+  --accent: #1a5276;
+  --accent-soft: #d6eaf8;
+  --good: #1e8449;
+  --bad: #b03a2e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 36px 10px;
+  border-bottom: 3px double var(--ink);
+}
+.masthead h1 { margin: 0; font-size: 40px; letter-spacing: 0.5px; }
+.tagline { max-width: 760px; color: var(--muted); font-size: 16px; line-height: 1.45; }
+.stamp { text-align: right; color: var(--muted); font-size: 14px; white-space: nowrap; }
+.validation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 16px 36px 4px;
+}
+.validation .card {
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  padding: 8px 14px;
+  min-width: 170px;
+  background: #fff;
+}
+.validation .card b { display: block; font-size: 20px; }
+.validation .card span { color: var(--muted); font-size: 13px; }
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: end;
+  padding: 14px 36px;
+  font-size: 14px;
+}
+.controls label { display: flex; flex-direction: column; gap: 4px; color: var(--muted); }
+.controls input, .controls select {
+  font: inherit;
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+}
+.shown { margin-left: auto; color: var(--muted); }
+.layout { display: flex; gap: 20px; padding: 0 36px 20px; align-items: flex-start; }
+.board-wrap { flex: 1; overflow-x: auto; }
+table.board { border-collapse: collapse; width: 100%; font-size: 14px; }
+table.board th {
+  text-align: left;
+  border-bottom: 2px solid var(--ink);
+  padding: 6px 8px;
+  white-space: nowrap;
+}
+table.board td { border-bottom: 1px solid var(--line); padding: 6px 8px; vertical-align: top; }
+table.board tr.row { cursor: pointer; }
+table.board tr.row:hover { background: var(--accent-soft); }
+.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pos { color: var(--good); }
+.neg { color: var(--bad); }
+.badge {
+  display: inline-block;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 9px;
+  padding: 0 7px;
+  font-size: 11px;
+  margin-left: 6px;
+}
+.badge.live { border-color: var(--good); color: var(--good); }
+.panel {
+  width: 380px;
+  flex: none;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--accent);
+  padding: 16px 18px;
+  background: #fff;
+  position: sticky;
+  top: 12px;
+}
+.panel h2 { margin: 0 0 4px; font-size: 24px; }
+.panel h3 { margin: 14px 0 6px; font-size: 17px; }
+.validation-note { padding: 2px 36px 0; color: var(--muted); font-size: 13px; max-width: 900px; }
+.panel .sub { color: var(--muted); font-size: 13px; margin-bottom: 10px; }
+.panel dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 14px; }
+.panel dt { color: var(--muted); }
+.panel dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+.panel ol { padding-left: 20px; font-size: 14px; line-height: 1.5; }
+.panel ol li { margin-bottom: 8px; }
+.panel .close { float: right; }
+.foot { padding: 10px 36px 30px; color: var(--muted); font-size: 13px; max-width: 900px; }
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .panel { width: 100%; position: static; }
+  .masthead { flex-direction: column; }
+}

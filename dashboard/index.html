@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Launch Radar — every pre-token protocol, priced and planned</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="masthead">
+  <div>
+    <h1>Launch Radar</h1>
+    <p class="tagline">The full DefiLlama universe, priced before the token exists. Every protocol in the snapshot is on this board exactly once: pre-token protocols ranked by the ensemble's implied launch value, live protocols carried at the market's own cap.</p>
+  </div>
+  <div class="stamp" id="stamp"></div>
+</header>
+
+<section class="validation" id="validation" aria-label="Out-of-sample validation"></section>
+<p class="validation-note">Graded out of sample on every run: leave-one-out over all tokenized peers, both split halves, and three seeded five-fold passes — the two earlier model generations are scored on the identical schemes, so the improvement is auditable from this page itself.</p>
+
+<section class="controls" aria-label="Board controls">
+  <label>Search <input id="q" type="search" placeholder="name or slug"></label>
+  <label>Category
+    <select id="cat"><option value="">All categories</option></select>
+  </label>
+  <label>Scope
+    <select id="scope">
+      <option value="pre">Pre-token only</option>
+      <option value="all">Full universe</option>
+      <option value="live">Live only</option>
+      <option value="watch">Watchlist</option>
+    </select>
+  </label>
+  <label>Sort
+    <select id="sort">
+      <option value="rank">Implied value</option>
+      <option value="tvl">TVL</option>
+      <option value="growth">7d growth</option>
+    </select>
+  </label>
+  <span class="shown" id="shown"></span>
+</section>
+
+<main class="layout">
+  <div class="board-wrap">
+    <table class="board">
+      <thead>
+        <tr><th>#</th><th>Protocol</th><th>Category</th><th>Chain</th><th>TVL</th><th>7d</th><th>Implied value</th><th>Range</th><th></th></tr>
+      </thead>
+      <tbody id="body"></tbody>
+    </table>
+  </div>
+  <aside class="panel" id="panel" hidden></aside>
+</main>
+
+<footer class="foot">
+  <p>Implied value is this radar's own claim, fitted on the snapshot's tokenized peers and graded out of sample above; it is not a prediction that a token will launch. Live rows are carried at the recorded market cap. Farm plans are sized from each protocol's TVL tier and written from its category playbook.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
